@@ -1,11 +1,26 @@
-// import {  } from '../constants/constants'
+import { ERROR, UPCOMING } from "../constants/constants"
 
-const movies = (movies = [], action) => {
+export const reducer = (state, action) => {
+    console.log(action.payload)
+    console.log(state.movies)
     switch (action.type) {
-        
-        default: return movies
+        case UPCOMING:
+            return {
+                ...state,
+                loading: false,
+                movies: {
+                    ...state.movies,
+                    upcoming: action.payload,
+                },
+                error: ''
+            }
+        case ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
     }
-
 }
-
-export default movies

@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useReducer } from 'react'
 import { getUpcoming } from './actions/movie'
+import { reducer } from './reducers/movies'
+import { INITIAL_STATE } from './constants/constants'
 
 const App = () => {
-  const dispatch = useDispatch()
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+
+  console.log(state)
+  
 
   useEffect(() => {
-    dispatch(getUpcoming())
+    getUpcoming(dispatch)
   }, [])
 
   return (
