@@ -6,8 +6,10 @@ import { INITIAL_STATE } from './constants/constants'
 const App = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
 
-  console.log(state)
+
   
+  console.log(state)
+
 
   useEffect(() => {
     getUpcoming(dispatch)
