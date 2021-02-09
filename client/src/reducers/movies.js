@@ -1,17 +1,45 @@
-import { ERROR, UPCOMING } from "../constants/constants"
+import { ERROR, UPCOMING, MOVIE, TRENDING } from "../constants/constants"
 
 export const reducer = (state, action) => {
-    console.log(action.payload)
-    console.log(state.movies)
     switch (action.type) {
         case UPCOMING:
             return {
                 ...state,
-                loading: false,
                 movies: {
                     ...state.movies,
-                    upcoming: action.payload,
+                    upcoming: {
+                        page: action.payload.page,
+                        totalPages: action.payload.total_pages,
+                        results: action.payload.results
+                    },
+                    currentMovie: {}
                 },
+                loading: false,
+                error: ''
+            }
+        case TRENDING:
+            return {
+                ...state,
+                movies: {
+                    ...state.movies,
+                    trending: {
+                        page: action.payload.page,
+                        totalPages: action.payload.total_pages,
+                        results: action.payload.results
+                    },
+                    currentMovie: {}
+                },
+                loading: false,
+                error: ''
+            }
+        case MOVIE:
+            return {
+                ...state,
+                movies: {
+                    ...state.movies,
+                    currentMovie: action.payload
+                },
+                loading: false,
                 error: ''
             }
         case ERROR:
