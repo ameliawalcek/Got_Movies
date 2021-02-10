@@ -6,13 +6,29 @@ const { API_KEY } = process.env
 
 class MovieAPI {
     constructor() {
-        this.baseURL = 'https://api.themoviedb.org/3/movie'
+        this.baseURL = 'https://api.themoviedb.org/3'
         this.key = API_KEY
     }
 
     async getUpcoming() {
         try {
-            return (await axios.get(`${this.baseURL}/upcoming?api_key=${this.key}&language=en-US&page=1`)).data
+            return (await axios.get(`${this.baseURL}/movie/upcoming?api_key=${this.key}&language=en-US&page=1`)).data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async getTrending() {
+        try {
+            return (await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}&language=en-US&page=1`)).data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    async getMovie(id) {
+        try {
+            return (await axios.get(`${this.baseURL}/movie/${id}?api_key=${this.key}&language=en-US`)).data
         } catch (error) {
             console.log(error)
         }
