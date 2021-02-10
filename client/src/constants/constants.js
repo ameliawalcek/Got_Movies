@@ -13,7 +13,7 @@ export const INITIAL_STATE = {
             totalPages: 0
         },
         search: {},
-        currentMovie:{}
+        currentMovie: {}
     }
 }
 
@@ -44,3 +44,4 @@ export const GENRE_LIST = {
     10752: 'War',
     37: 'Western'
 }
+

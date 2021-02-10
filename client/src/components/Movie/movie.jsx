@@ -1,6 +1,7 @@
 import React from 'react'
-import { GENRE_LIST, POSTER_URL } from '../../constants/constants'
+import { POSTER_URL } from '../../constants/constants'
 import { useHistory } from "react-router-dom"
+import PercentageCircle from '../Extra/PercentageCircle/PercentageCircle'
 
 const Movie = ({ movie }) => {
     const history = useHistory()
@@ -11,15 +12,12 @@ const Movie = ({ movie }) => {
     }
 
     return (
-        <div style={{ display: 'inline-block' }}>
-            <img onClick={handleClick} style={{ width: '200px' }} src={`${POSTER_URL}${movie.poster_path}`} alt={movie.title} />
-            <div>{Math.floor(movie.vote_average * 10)}%</div>
+        <div>
+            <img onClick={handleClick} style={{ height: '200px' }} src={`${POSTER_URL}${movie.poster_path}`} alt={movie.title} />
+            <PercentageCircle value={Math.floor(movie.vote_average * 10)} />
         </div>
-    
     )
 }
 
 export default Movie
-// const findGenre = (id) => {
-//     return <span key={id}>{GENRE_LIST[id]}</span>
-// }
+
