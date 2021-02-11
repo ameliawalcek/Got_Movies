@@ -25,10 +25,18 @@ class MovieAPI {
             console.log(error)
         }
     }
-    
+
     async getMovie(id) {
         try {
             return (await axios.get(`${this.baseURL}/movie/${id}?api_key=${this.key}&language=en-US`)).data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async getTitleSearch(search) {
+        try {
+            return (await axios.get(`${this.baseURL}/search/movie?api_key=${this.key}&query=${search}`)).data
         } catch (error) {
             console.log(error)
         }

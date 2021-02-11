@@ -18,5 +18,10 @@ movieRouter.get('/details/:id', async (req, res) => {
     let response = await movieAPI.getMovie(id)
     res.send(response)
 })
+movieRouter.get('/search/title/:search', async (req, res) => {
+    const { search } = req.params
+    let response = await movieAPI.getTitleSearch(search)
+    res.send(response)
+})
 
 export default movieRouter

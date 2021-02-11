@@ -1,5 +1,5 @@
 import * as api from '../api'
-import { ERROR, MOVIE, TRENDING, UPCOMING } from '../constants/constants'
+import { ERROR, MOVIE, SEARCH, TRENDING, UPCOMING } from '../constants/constants'
 
 export const getUpcoming = async (dispatch) => {
     try {
@@ -28,5 +28,26 @@ export const getTrending = async (dispatch) => {
 
     } catch (error) {
         dispatch({ type: ERROR, payload: error })
+    }
+}
+
+export const setSearch = async (data, dispatch) => {
+    try {
+        dispatch({ type: SEARCH, payload: data })
+
+    } catch (error) {
+        dispatch({ type: ERROR, payload: error })
+
+    }
+}
+
+export const getTitleSearch = async (search, dispatch) => {
+    try {
+        const { data } = api.getTitleSearch(search)
+        dispatch({ type: SEARCH, payload: data })
+
+    } catch (error) {
+        dispatch({ type: ERROR, payload: error })
+
     }
 }

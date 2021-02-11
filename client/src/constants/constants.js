@@ -12,7 +12,11 @@ export const INITIAL_STATE = {
             page: 0,
             totalPages: 0
         },
-        search: {},
+        search: {
+            results: [],
+            page: 0,
+            totalPages: 0
+        },
         currentMovie: {}
     }
 }
@@ -21,6 +25,7 @@ export const ERROR = 'ERROR'
 export const UPCOMING = 'UPCOMING'
 export const MOVIE = 'MOVIE'
 export const TRENDING = 'TRENDING'
+export const SEARCH = 'SEARCH'
 
 export const POSTER_URL = 'https://image.tmdb.org/t/p/original'
 

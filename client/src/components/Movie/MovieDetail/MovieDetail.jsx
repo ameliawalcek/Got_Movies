@@ -8,8 +8,6 @@ const MovieDetail = ({ dispatch, match, movie }) => {
         getMovie(match.params.id, dispatch)
     }, [])
 
-    console.log(movie)
-
     return (
         <div>
             <div>{movie.title}</div>

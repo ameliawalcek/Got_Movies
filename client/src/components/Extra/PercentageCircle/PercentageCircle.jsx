@@ -4,7 +4,7 @@ import { Typography, Box, CircularProgress } from '@material-ui/core'
 const PercentageCircle = (props) => {
     return (
         <Box position="relative" display="inline-flex">
-            <CircularProgress variant="determinate" thickness='6' {...props} />
+            <CircularProgress variant="determinate" thickness={6} {...props} />
             <Box
                 top={0}
                 left={0}

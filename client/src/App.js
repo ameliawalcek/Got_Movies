@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { getTrending, getUpcoming } from './actions/movie'
 import { reducer } from './reducers/movies'
 import { INITIAL_STATE } from './constants/constants'
-import Container from './components/Container/Container'
 import MovieDetail from './components/Movie/MovieDetail/MovieDetail'
+import Home from './components/Home/Home'
+import Movies from './components/Movies/Movies'
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
@@ -18,11 +19,12 @@ const App = () => {
 
   return (
     <Router>
-      <Route exact path='/'>
+      {/* <Route exact path='/'>
         <Redirect to='/movies' />
-      </Route>
-      <Route exact path='/movies' render={() => <Container state={state} dispatch={dispatch} />} />
-      <Route exact path='/movies/:id' render={({ match }) => <MovieDetail movie={state.movies.currentMovie} dispatch={dispatch} match={match} />} />
+      </Route> */}
+      <Route exact path='/' render={() => <Home state={state} dispatch={dispatch} />} />
+      <Route exact path='/movies/search/:search' render={({ match }) => <Movies state={state} dispatch={dispatch} match={match} />} />
+      <Route exact path='/movies/movie/:id' render={({ match }) => <MovieDetail movie={state.movies.currentMovie} dispatch={dispatch} match={match} />} />
     </Router>
   )
 

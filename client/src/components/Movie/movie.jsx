@@ -7,17 +7,16 @@ const Movie = ({ movie }) => {
     const history = useHistory()
 
     const handleClick = () => {
-        console.log(movie.id)
-        history.push(`/movies/${movie.id}`)
+        history.push(`/movies/movie/${movie.id}`)
     }
 
     return (
-        <div>
+        <div style={{display: 'inline-block'}}>
             <img onClick={handleClick} style={{ height: '200px' }} src={`${POSTER_URL}${movie.poster_path}`} alt={movie.title} />
             <PercentageCircle value={Math.floor(movie.vote_average * 10)} />
         </div>
     )
 }
 
-export default Movie
+export default React.memo(Movie)
 
