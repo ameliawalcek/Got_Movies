@@ -6,6 +6,7 @@ import { INITIAL_STATE } from './constants/constants'
 import MovieDetail from './components/Movie/MovieDetail/MovieDetail'
 import Home from './components/Home/Home'
 import Movies from './components/Movies/Movies'
+import NavBar from './components/NavBar/NavBar'
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <Router>
+      <NavBar/>
       {/* <Route exact path='/'>
         <Redirect to='/movies' />
       </Route> */}
