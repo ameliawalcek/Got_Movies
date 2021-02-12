@@ -10,17 +10,17 @@ class MovieAPI {
         this.key = API_KEY
     }
 
-    async getUpcoming() {
+    async getUpcoming(page) {
         try {
-            return (await axios.get(`${this.baseURL}/movie/upcoming?api_key=${this.key}&language=en-US&page=1`)).data
+            return (await axios.get(`${this.baseURL}/movie/upcoming?api_key=${this.key}&language=en-US&page=${page}`)).data
         } catch (error) {
             console.log(error)
         }
     }
 
-    async getTrending() {
+    async getTrending(page) {
         try {
-            return (await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}&language=en-US&page=1`)).data
+            return (await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}&language=en-US&page=${page}`)).data
         } catch (error) {
             console.log(error)
         }

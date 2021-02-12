@@ -1,4 +1,4 @@
-import { ERROR, UPCOMING, MOVIE, TRENDING, SEARCH } from "../constants/constants"
+import { ERROR, UPCOMING, MOVIE, TRENDING, SEARCH, MORE, LOADING } from "../constants/constants"
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -52,8 +52,31 @@ export const reducer = (state, action) => {
                         total_pages: action.payload.total_pages,
                         results: action.payload.results
                     }
-                }
+                },
+                loading: false,
+                error: ''
             }
+        case MORE:
+            return {
+                ...state,
+                movies: {
+                    ...state.movies,
+                    search: {
+                        page: action.payload.page,
+                        total_pages: action.payload.total_pages,
+                        results: [...state.movies.search.results, ...action.payload.results]
+                    }
+                },
+                loading: false,
+                error: ''
+            }
+        case LOADING: {
+            return {
+                ...state,
+                loading: true,
+                error: ''
+            }
+        }
         case ERROR:
             return {
                 ...state,

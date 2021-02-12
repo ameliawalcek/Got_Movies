@@ -9,7 +9,7 @@ const MovieDetail = ({ dispatch, match, movie }) => {
     }, [])
 
     return (
-        <div>
+        <div style={{paddingTop: '70px'}}>
             <div>{movie.title}</div>
             <div>{movie.release_date}</div>
             <div>{movie.overview}</div>

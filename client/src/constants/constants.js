@@ -5,17 +5,17 @@ export const INITIAL_STATE = {
         upcoming: {
             results: [],
             page: 0,
-            totalPages: 0
+            total_pages: 0
         },
         trending: {
             results: [],
             page: 0,
-            totalPages: 0
+            total_pages: 0
         },
         search: {
             results: [],
             page: 0,
-            totalPages: 0
+            total_pages: 0
         },
         currentMovie: {}
     }
@@ -26,6 +26,8 @@ export const UPCOMING = 'UPCOMING'
 export const MOVIE = 'MOVIE'
 export const TRENDING = 'TRENDING'
 export const SEARCH = 'SEARCH'
+export const MORE = 'MORE'
+export const LOADING = 'LOADING'
 
 export const POSTER_URL = 'https://image.tmdb.org/t/p/original'
 
